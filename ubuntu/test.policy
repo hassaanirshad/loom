@@ -1,0 +1,23 @@
+strategy: callout
+hook_prefix: __test_hook
+logging: printf
+functions:
+    - name: main
+      caller: [ entry, exit ]
+      callee: [ entry, exit ]
+    - name: function_void_return_no_arg
+      caller: [ entry, exit ]
+      callee: [ entry, exit ]
+    - name: function_int_return_int_long_float_charp_arg
+      caller: [ entry, exit ]
+      callee: [ entry, exit ]
+    - name: function_charp_return_int_long_float_charp_arg
+      caller: [ entry, exit ]
+      callee: [ entry, exit ]
+structures:
+  - name: test_struct.*
+    fields:
+      - name: test_int
+        operations: [ read, write ]
+      - name: test_charp
+        operations: [ read, write ]
