@@ -2,16 +2,7 @@ strategy: callout
 hook_prefix: __test_hook
 logging: printf
 functions:
-    - name: main
-      caller: [ entry, exit ]
-      callee: [ entry, exit ]
-    - name: function_void_return_no_arg
-      caller: [ entry, exit ]
-      callee: [ entry, exit ]
-    - name: function_int_return_int_long_float_charp_arg
-      caller: [ entry, exit ]
-      callee: [ entry, exit ]
-    - name: function_charp_return_int_long_float_charp_arg
+    - name: "[a-zA-Z0-9_]+"
       caller: [ entry, exit ]
       callee: [ entry, exit ]
 structures:

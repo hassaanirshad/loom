@@ -1,0 +1,18 @@
+Stack dump:
+0.      Program arguments: opt -load ../Release/lib/LLVMLoom.so -loom -loom-file test.policy test.bc -o test.opt.bc 
+1.      Running pass 'Loom instrumentation' on module 'test.bc'.
+LLVMSymbolizer: error reading file: No such file or directory
+#0 0x0000558befd9d61a (opt+0x1ead61a)
+#1 0x0000558befd9bbd4 (opt+0x1eabbd4)
+#2 0x0000558befd9bd12 (opt+0x1eabd12)
+#3 0x00007f151fb08890 __restore_rt (/lib/x86_64-linux-gnu/libpthread.so.0+0x12890)
+#4 0x0000558bef78cd70 (opt+0x189cd70)
+#5 0x00007f151e55ebda (anonymous namespace)::CalloutStrategy::Instrument(llvm::Instruction*, llvm::StringRef, llvm::StringRef, llvm::ArrayRef<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, llvm::Type*> >, llvm::ArrayRef<llvm::Value*>, loom::Metadata, std::vector<loom::Transform, std::allocator<loom::Transform> >, bool, bool, bool) (../Release/lib/LLVMLoom.so+0x1cbda)
+#6 0x00007f151e55be03 loom::Instrumenter::Instrument(llvm::Function&, loom::Policy::Direction, loom::Metadata, std::vector<loom::Transform, std::allocator<loom::Transform> >) (../Release/lib/LLVMLoom.so+0x19e03)
+#7 0x00007f151e55cc98 loom::Instrumenter::Instrument(llvm::Function&, std::vector<loom::Policy::Direction, std::allocator<loom::Policy::Direction> > const&, loom::Metadata, std::vector<loom::Transform, std::allocator<loom::Transform> >) (../Release/lib/LLVMLoom.so+0x1ac98)
+#8 0x00007f151e571e50 (anonymous namespace)::OptPass::runOnModule(llvm::Module&) (../Release/lib/LLVMLoom.so+0x2fe50)
+#9 0x0000558bef7b5db0 (opt+0x18c5db0)
+#10 0x0000558bee49c592 (opt+0x5ac592)
+#11 0x00007f151e79cb97 __libc_start_main /build/glibc-OTsEL5/glibc-2.27/csu/../csu/libc-start.c:344:0
+#12 0x0000558bee52d13a (opt+0x63d13a)
+./buildAndExecute.sh: line 46:   437 Segmentation fault      (core dumped) opt -load "${llvmLoomSharedLibraryPath}" -loom -loom-file test.policy test.bc -o test.opt.bc
